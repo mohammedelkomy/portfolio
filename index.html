@@ -521,21 +521,26 @@
         .project-image-wrapper {
             position: relative;
             width: 100%;
-            height: 250px;
+            height: 280px;
             background: var(--bg-tertiary);
             overflow: hidden;
             transition: background 0.4s ease;
+            border-radius: 15px 15px 0 0;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .project-image-wrapper img {
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            object-fit: contain;
             transition: transform 0.4s ease;
         }
 
         .project-card:hover .project-image-wrapper img {
-            transform: scale(1.05);
+            transform: scale(1.03);
         }
 
         .project-content {
@@ -929,10 +934,12 @@
 
         .certificate-item {
             background: var(--bg-tertiary);
-            border-radius: 12px;
+            border-radius: 16px;
             overflow: hidden;
             border: 1px solid var(--border-color);
             transition: all 0.4s ease;
+            display: flex;
+            flex-direction: column;
         }
 
         .certificate-item:hover {
@@ -943,23 +950,28 @@
 
         .certificate-image {
             width: 100%;
-            height: 200px;
-            background: var(--bg-tertiary);
+            height: 220px;
+            background: var(--bg-secondary);
             display: flex;
             align-items: center;
             justify-content: center;
             overflow: hidden;
             position: relative;
+            padding: 15px;
         }
 
         .certificate-image img {
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            object-fit: contain;
         }
 
         .certificate-info {
             padding: 20px;
+            text-align: center;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
         }
 
         .certificate-info h3 {
@@ -967,12 +979,88 @@
             margin-bottom: 8px;
             color: var(--text-heading);
             transition: color 0.4s ease;
+            line-height: 1.4;
         }
 
-        .certificate-info p {
-            color: var(--text-tertiary);
+        .certificate-issuer {
+            color: var(--text-secondary);
             font-size: 0.9em;
-            transition: color 0.4s ease;
+            margin-bottom: 12px;
+            font-weight: 500;
+        }
+
+        .certificate-meta {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.85em;
+            color: var(--text-tertiary);
+        }
+
+        .meta-item i {
+            color: var(--accent-primary);
+            font-size: 0.9em;
+        }
+
+        .certificate-tags {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 15px;
+        }
+
+        .cert-tag {
+            padding: 5px 12px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            font-size: 0.75em;
+            color: var(--text-secondary);
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .cert-tag:hover {
+            background: var(--accent-primary);
+            color: #fff;
+            border-color: var(--accent-primary);
+        }
+
+        .verify-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            padding: 8px 16px;
+            background: transparent;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.85em;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin-top: auto;
+        }
+
+        .verify-btn:hover {
+            background: var(--accent-primary);
+            color: #fff;
+            border-color: var(--accent-primary);
+        }
+
+        .verify-btn i {
+            font-size: 0.9em;
         }
 
         /* ==================== Contact Form Section ==================== */
@@ -1373,56 +1461,154 @@
             <div class="certificates-grid">
                 <div class="certificate-item">
                     <div class="certificate-image">
-                        <img src="./assets/Depi.jpg" alt="DEPI Certificate" style="width: 100%; height: 100%; object-fit: cover;">
+                        <img src="./assets/Depi.jpg" alt="DEPI Certificate">
                     </div>
                     <div class="certificate-info">
                         <h3>Data Analyst Specialist</h3>
-                        <p>Issued by: DEPI • December 2024</p>
+                        <p class="certificate-issuer">Digital Egypt Pioneers Initiative (DEPI)</p>
+                        <div class="certificate-meta">
+                            <span class="meta-item">
+                                <i class="fas fa-calendar-alt"></i>
+                                December 2024
+                            </span>
+                        </div>
+                        <div class="certificate-tags">
+                            <span class="cert-tag">Data Analysis</span>
+                            <span class="cert-tag">Python</span>
+                            <span class="cert-tag">SQL</span>
+                        </div>
+                        <a href="#" class="verify-btn">
+                            <i class="fas fa-check-circle"></i>
+                            Verify Certificate
+                        </a>
                     </div>
                 </div>
                 <div class="certificate-item">
                     <div class="certificate-image">
-                        <img src="./assets/ITI Certificate.png" alt="ITI Certificate" style="width: 100%; height: 100%; object-fit: cover;">
+                        <img src="./assets/ITI Certificate.png" alt="ITI Certificate">
                     </div>
                     <div class="certificate-info">
-                        <h3>AI & Machine Learning (72 hrs)</h3>
-                        <p>Issued by: ITI • Aug 15 - Sep 16, 2024</p>
+                        <h3>Artificial Intelligence & Machine Learning</h3>
+                        <p class="certificate-issuer">Information Technology Institute (ITI)</p>
+                        <div class="certificate-meta">
+                            <span class="meta-item">
+                                <i class="fas fa-calendar-alt"></i>
+                                Aug 15 - Sep 16, 2024
+                            </span>
+                            <span class="meta-item">
+                                <i class="fas fa-clock"></i>
+                                72 Hours
+                            </span>
+                        </div>
+                        <div class="certificate-tags">
+                            <span class="cert-tag">AI</span>
+                            <span class="cert-tag">Machine Learning</span>
+                            <span class="cert-tag">Deep Learning</span>
+                        </div>
+                        <a href="#" class="verify-btn">
+                            <i class="fas fa-check-circle"></i>
+                            Verify Certificate
+                        </a>
                     </div>
                 </div>
                 <div class="certificate-item">
                     <div class="certificate-image">
-                        <img src="./assets/Python From udemy.png" alt="Udemy Python Certificate" style="width: 100%; height: 100%; object-fit: cover;">
+                        <img src="./assets/Python From udemy.png" alt="Udemy Python Certificate">
                     </div>
                     <div class="certificate-info">
-                        <h3>Python For Beginners (4.5 hrs)</h3>
-                        <p>Issued by: Udemy • October 2024</p>
+                        <h3>Python For Beginners</h3>
+                        <p class="certificate-issuer">Udemy</p>
+                        <div class="certificate-meta">
+                            <span class="meta-item">
+                                <i class="fas fa-calendar-alt"></i>
+                                October 2024
+                            </span>
+                            <span class="meta-item">
+                                <i class="fas fa-clock"></i>
+                                4.5 Hours
+                            </span>
+                        </div>
+                        <div class="certificate-tags">
+                            <span class="cert-tag">Python</span>
+                            <span class="cert-tag">Programming</span>
+                            <span class="cert-tag">Basics</span>
+                        </div>
+                        <a href="#" class="verify-btn">
+                            <i class="fas fa-check-circle"></i>
+                            Verify Certificate
+                        </a>
                     </div>
                 </div>
                 <div class="certificate-item">
                     <div class="certificate-image">
-                        <img src="./assets/deep_learning.png" alt="NVIDIA Deep Learning Certificate" style="width: 100%; height: 100%; object-fit: cover;">
+                        <img src="./assets/deep_learning.png" alt="NVIDIA Deep Learning Certificate">
                     </div>
                     <div class="certificate-info">
                         <h3>Getting Started with Deep Learning</h3>
-                        <p>Issued by: NVIDIA • September 2024</p>
+                        <p class="certificate-issuer">NVIDIA Deep Learning Institute</p>
+                        <div class="certificate-meta">
+                            <span class="meta-item">
+                                <i class="fas fa-calendar-alt"></i>
+                                September 2024
+                            </span>
+                        </div>
+                        <div class="certificate-tags">
+                            <span class="cert-tag">Deep Learning</span>
+                            <span class="cert-tag">Neural Networks</span>
+                            <span class="cert-tag">AI</span>
+                        </div>
+                        <a href="#" class="verify-btn">
+                            <i class="fas fa-check-circle"></i>
+                            Verify Certificate
+                        </a>
                     </div>
                 </div>
                 <div class="certificate-item">
                     <div class="certificate-image">
-                        <img src="./assets/Building LLM Applications With Prompt Engineering - NVIDIA.png" alt="NVIDIA LLM Certificate" style="width: 100%; height: 100%; object-fit: cover;">
+                        <img src="./assets/Building LLM Applications With Prompt Engineering - NVIDIA.png" alt="NVIDIA LLM Certificate">
                     </div>
                     <div class="certificate-info">
                         <h3>Building LLM Applications With Prompt Engineering</h3>
-                        <p>Issued by: NVIDIA • February 2026</p>
+                        <p class="certificate-issuer">NVIDIA Deep Learning Institute</p>
+                        <div class="certificate-meta">
+                            <span class="meta-item">
+                                <i class="fas fa-calendar-alt"></i>
+                                February 2026
+                            </span>
+                        </div>
+                        <div class="certificate-tags">
+                            <span class="cert-tag">Prompt Engineering</span>
+                            <span class="cert-tag">LLM</span>
+                            <span class="cert-tag">AI Applications</span>
+                        </div>
+                        <a href="#" class="verify-btn">
+                            <i class="fas fa-check-circle"></i>
+                            Verify Certificate
+                        </a>
                     </div>
                 </div>
                 <div class="certificate-item">
                     <div class="certificate-image">
-                        <img src="./assets/Generative_ai.png" alt="NVIDIA GenAI Certificate" style="width: 100%; height: 100%; object-fit: cover;">
+                        <img src="./assets/Generative_ai.png" alt="NVIDIA GenAI Certificate">
                     </div>
                     <div class="certificate-info">
                         <h3>AI for All: From Basics to GenAI Practice</h3>
-                        <p>Issued by: NVIDIA • January 2026</p>
+                        <p class="certificate-issuer">NVIDIA Deep Learning Institute</p>
+                        <div class="certificate-meta">
+                            <span class="meta-item">
+                                <i class="fas fa-calendar-alt"></i>
+                                January 2026
+                            </span>
+                        </div>
+                        <div class="certificate-tags">
+                            <span class="cert-tag">Generative AI</span>
+                            <span class="cert-tag">AI Basics</span>
+                            <span class="cert-tag">GenAI Practice</span>
+                        </div>
+                        <a href="#" class="verify-btn">
+                            <i class="fas fa-check-circle"></i>
+                            Verify Certificate
+                        </a>
                     </div>
                 </div>
             </div>
